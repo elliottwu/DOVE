@@ -1,0 +1,2 @@
+echo "----------------------- downloading pretrained model on horses -----------------------"
+wget https://download.cs.stanford.edu/viscam/AnimalKingdom/dove/models/pretrained_horse.zip && unzip pretrained_horse.zip

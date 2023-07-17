@@ -1,0 +1,94 @@
+## trainer
+run_train: true
+num_epochs: 50
+batch_size: 4
+checkpoint_dir: results/horse/final_horse
+save_checkpoint_freq: 2
+keep_num_checkpoint: -1  # -1 for keeping all checkpoints
+resume: true
+use_logger: true
+log_image_freq: 500
+log_loss_freq: 50
+log_train: true
+log_val: true
+fix_log_batch: false
+
+## dataloader
+in_image_size: 128  # input image size
+out_image_size: 128  # rendered image size
+data_type: 'sequence'  # sequence, image
+train_data_dir: data/horse_videos_multi/clips/train
+random_shuffle_train_samples: true
+random_sample_train_frames: false
+val_data_dir: data/horse_videos_multi/clips/val
+num_frames: 8
+skip_beginning: 0
+skip_end: 0
+min_seq_len: 2
+
+## renderer
+fov: 25
+sigma: 1e-6  # 1e-6
+gamma: 1e-6  # 1e-6
+faces_per_pixel: 10  # 30
+cam_pos_z_offset: 10
+
+## model
+lr: 0.0001
+use_scheduler: false
+# scheduler_milestone: [9, 10, 11, 12]
+# scheduler_gamma: 0.7
+latent_dimension: 128
+ico_sphere_subdiv: 3
+enable_prior: true
+shape_prior_type: offset
+sym_prior_shape: true  # enforce prior shape to be symmetric
+prior_lr: 0.01
+seqshape_epochs: [0, 0]  # disable sequence shape
+sym_seq_shape: true  # enforce sequence shape to be symmetric
+avg_seqshape_epochs: [0, 0]
+rand_avg_seqshape_prob: 0.
+rot_rep: 'lookat'  # euler_angle, quaternion, lookat
+lookat_init: [-0.1, 0., 0.]
+lookat_zeroy: true
+arti_epochs: [25, 9999]  # no articulation fist
+num_body_bones: 6
+num_legs: 4
+num_leg_bones: 4
+skinning_temperature: 0.1
+body_bones_type: z_minmax_y+  # max_distance, z_minmax, z_minmax_y+
+static_root_bones: false
+tex_epochs: [30, 9999]
+disable_sym_tex: false
+tex_im_size: 128
+avg_texture_epochs: [0, 9999]
+rand_avg_texture_prob: 0.5
+max_trans_xy_range_ratio: 0.4
+max_trans_z_range_ratio: 0.4
+background_mode: none  # background, none, input
+alternate_pose_epochs: [0, 50]  # optimize pose only
+alternate_pose_iters: 2000
+
+## losses
+mask_loss_weight: 2.
+rgb_loss_weight: 1.
+perceptual_loss_weight: 0.01
+perceptual_loss_use_lin: true
+flow_loss_weight: 100.
+mesh_regularization_mode: seq
+mesh_laplacian_method: uniform
+mesh_laplacian_smoothing_weight: 1.
+mesh_normal_consistency_weight: 1.
+mesh_reg_decay_epoch: 30
+mesh_reg_decay_rate: 0.8
+mesh_laplacian_smoothing_min_weight: 0.01
+mesh_normal_consistency_min_weight: 0.01
+arap_prior_seq_regularizer_weight: 50.
+arap_seq_frame_regularizer_weight: 10.
+random_im_xflip_epochs: [4, 9999]
+pose_xflip_reg_epochs: [4, 9999]
+pose_xflip_regularizer_weight: 0.1
+pose_zflip_epochs: [0, 50]
+pose_zflip_rect_loss_epochs: [8, 50]
+pose_zflip_rect_loss_weight: 0.5
+pose_zflip_no_other_losses: true  # only pose rectification loss and no other losses, if the z-mirrored pose is better
