@@ -144,8 +144,8 @@ class NFrameSequenceDataset(BaseSequenceDataset):
 
     def __getitem__(self, index):
         if self.random_sample:
-            seq_idx = index % len(self.sequences)
-            seq = self.sequences[seq_idx]
+            seq_idx = index % len(self.samples)
+            seq = self.samples[seq_idx]
             if len(seq) < self.num_frames:
                 start_frame_idx = 0
             else:
