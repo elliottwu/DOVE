@@ -42,27 +42,33 @@ pip install lpips
 ```
 
 ## Data
-The preprocessed datasets can be downloaded from the scripts in `data/`, including bird videos, horse videos and the 3D toy bird dataset, eg:
+The preprocessed datasets can be downloaded using the scripts in `data/`:
 ```
-cd data && sh download_bird_videos.sh
+cd data
+sh download_bird_videos.sh
+sh download_horse_videos.sh
+sh download_toy_birds.sh
+sh download_toy_birds_raw.sh
 ```
 
-The raw captures of the toy birds are also available:
-```
-cd data && sh download_toy_birds_raw.sh
-```
+The `toy_birds` dataset consists of 3D scans and real photos of 23 toy birds, which are preprocessed and used for 3D evaluation. `toy_birds_raw` contains all the raw captures.
 
 ## Pretrained Models
 The pretrained models on birds and horses can be downloaded using the scripts in `results/`, eg:
 ```
 cd results/bird && sh download_pretrained_bird.sh
 ```
+and
+```
+cd results/horse && sh download_pretrained_horse.sh
+```
 
-## Running
+## Run
 ### Training and Testing
-Check the configuration files in `configs/` and run experiments, eg:
+Check the configuration files in `config/` and run, eg:
 ```
 python run.py --config configs/bird/train_bird.yml --gpu 0 --num_workers 4
+python run.py --config configs/bird/test_bird.yml --gpu 0 --num_workers 4
 ```
 
 ### Evaluation on Birds
