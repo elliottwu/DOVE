@@ -17,10 +17,10 @@ fix_log_batch: false
 in_image_size: 128  # input image size
 out_image_size: 128  # rendered image size
 data_type: 'sequence'  # sequence, image
-train_data_dir: data/bird_videos_bonanza/clips/train
+train_data_dir: data/bird_videos_bonanza/train
 random_shuffle_train_samples: true
 random_sample_train_frames: false
-val_data_dir: data/bird_videos_bonanza/clips/val
+val_data_dir: data/bird_videos_bonanza/val
 num_frames: 8
 skip_beginning: 0
 skip_end: 0

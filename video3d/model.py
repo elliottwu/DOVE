@@ -14,8 +14,6 @@ from .utils.skinning import skinning
 import lpips
 from einops import rearrange
 
-EPS = 1e-7
-
 
 def validate_tensor_to_device(x, device):
     if torch.any(torch.isnan(x)):

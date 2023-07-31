@@ -12,7 +12,7 @@ use_logger: false
 in_image_size: 128  # input image size
 out_image_size: 128  # rendered image size
 data_type: 'sequence'  # sequence, image
-test_data_dir: data/bird_videos_bonanza/clips/test
+test_data_dir: data/bird_videos_bonanza/test
 num_frames: 8
 skip_beginning: 0
 skip_end: 0
