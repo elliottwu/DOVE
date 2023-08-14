@@ -1,4 +1,4 @@
-# 🕊 DOVE: Learning Deformable 3D Objects by Watching Videos
+# 🕊 DOVE: Learning Deformable 3D Objects by Watching Videos (IJCV 2023)
 #### [Project Page](https://dove3d.github.io/) | [Video](https://youtu.be/WqmNewAQnmY) | [Paper](https://arxiv.org/abs/2107.10844)
 
 In IJCV 2023
